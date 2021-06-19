@@ -7,11 +7,32 @@
  */
 const chooseBestDistance = (t, k, ls) => {
 
+    if ( !isPositiveInt(t) ) {
+        throw new TypeError("t must be positive integer!");
+    }
+
+    if ( !isPositiveInt(k) || k < 1 ) {
+        throw new TypeError("k should be integer >= 1!");
+    }
+
+    if ( typeof(ls.length) !== "number" || ls.length < 1 ) {
+        throw new TypeError("ls must be an array with length > 0");
+    }
+
+    if ( !ls.every(elem => isPositiveInt(elem)) ) {
+        throw new TypeError("ls must be an array with positive integers");
+    }
+
     return getCombinations(ls, [], k)
         .map(arr => arr.reduce((sum, elem) => sum + elem, 0))
         .filter(sum => sum <= t)
         .reduce((max, elem) => elem > max ? elem : max, null);
 };
+
+
+const isPositiveInt = (num) => {
+    return typeof(num) == "number" && Number.parseInt(num) === num && num > 0;
+}
 
 /**
  * Recursive method for calculating all combinations

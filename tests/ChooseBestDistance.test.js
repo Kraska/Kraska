@@ -3,8 +3,20 @@ const chooseBestDistance = require('../src/ChooseBestDistance');
 
 describe('ChooseBestDistance', () => {
 
-    it('Null test', () => {
+    it('Expect null', () => {
         expect(chooseBestDistance(163, 3, [50])).toBeNull()
+    })
+
+    it('Expect error, because of ls = []', () => {
+        expect(() => chooseBestDistance(163, 3, [])).toThrow(TypeError)
+    })
+
+    it('Expect error, because of ls contains negative num', () => {
+        expect(() => chooseBestDistance(163, 3, [-1])).toThrow(TypeError)
+    })
+
+    it('Expect error, because of k = 0', () => {
+        expect(() => chooseBestDistance(163, 0, [])).toThrow(TypeError)
     })
 
     it('k = 2', () => {
