@@ -11,4 +11,8 @@ describe('ChooseBestDistance', () => {
         expect(chooseBestDistance(108, 2, [51, 56, 58, 59, 61])).toEqual(107)
     })
 
+    it('k = 3', () => {
+        expect(chooseBestDistance(174, 3, [51, 56, 58, 59, 61])).toEqual(173)
+    })
+
 });
