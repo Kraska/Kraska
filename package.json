@@ -1,0 +1,14 @@
+{
+  "name": "radency-test",
+  "version": "1.0.0",
+  "description": "Radency test task",
+  "main": "tests/ChooseBestDistance.test.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Savelieva Katerina",
+  "license": "MIT",
+  "dependencies": {
+    "jest": "^27.0.4"
+  }
+}
